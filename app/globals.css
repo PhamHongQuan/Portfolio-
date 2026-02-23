@@ -1,26 +1,248 @@
 @import "tailwindcss";
 
 :root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+:root.light {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Clean HTML - Native browser scrollbar */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+}
+
+/* Fix mobile viewport height */
+@supports (height: 100dvh) {
+  html {
+    height: 100dvh;
   }
 }
 
+/* Body styling */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  min-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+/* Ensure all direct children of body don't overflow */
+body > *,
+#__next {
+  max-width: 100%;
+}
+
+/* Light mode overrides */
+:root.light body {
+  background: linear-gradient(to bottom, #f9fafb, #ffffff);
+}
+
+:root.light section {
+  color: #0a0a0a;
+}
+
+:root.light .bg-black {
+  background-color: #ffffff !important;
+}
+
+:root.light .bg-zinc-900 {
+  background-color: #f3f4f6 !important;
+}
+
+:root.light .bg-zinc-950 {
+  background-color: #ffffff !important;
+}
+
+:root.light .bg-zinc-900\/50 {
+  background-color: rgba(243, 244, 246, 0.8) !important;
+}
+
+:root.light .bg-zinc-900\/90 {
+  background-color: rgba(243, 244, 246, 0.9) !important;
+}
+
+:root.light .bg-zinc-900\/95 {
+  background-color: rgba(243, 244, 246, 0.95) !important;
+}
+
+:root.light .bg-zinc-800 {
+  background-color: #e5e7eb !important;
+}
+
+:root.light .bg-zinc-800\/50 {
+  background-color: rgba(229, 231, 235, 0.5) !important;
+}
+
+:root.light .bg-zinc-700 {
+  background-color: #d1d5db !important;
+}
+
+:root.light .text-white {
+  color: #0a0a0a !important;
+}
+
+:root.light .text-zinc-400 {
+  color: #6b7280 !important;
+}
+
+:root.light .text-zinc-500 {
+  color: #6b7280 !important;
+}
+
+:root.light .border-zinc-800 {
+  border-color: #e5e7eb !important;
+}
+
+:root.light .border-zinc-700 {
+  border-color: #d1d5db !important;
+}
+
+:root.light .border-zinc-600 {
+  border-color: #9ca3af !important;
+}
+
+/* Experience - Timeline elements */
+:root.light .via-zinc-700 {
+  --tw-gradient-stops: transparent, #d1d5db, transparent !important;
+}
+
+:root.light .border-zinc-950 {
+  border-color: #f3f4f6 !important;
+}
+
+:root.light .bg-zinc-700 {
+  background-color: #9ca3af !important;
+}
+
+/* Projects - Tech tags */
+:root.light .bg-zinc-800.text-zinc-300,
+:root.light span.bg-zinc-800 {
+  background-color: #e5e7eb !important;
+  color: #374151 !important;
+}
+
+:root.light .text-zinc-300 {
+  color: #4b5563 !important;
+}
+
+/* Projects - Button borders and hover */
+:root.light a[class*="border-zinc-700"],
+:root.light button[class*="border-zinc-700"] {
+  border-color: #d1d5db !important;
+}
+
+:root.light .border-zinc-500 {
+  border-color: #9ca3af !important;
+}
+
+/* Projects & Hero - White/Black button inversions */
+:root.light .bg-white.text-black {
+  background-color: #0a0a0a !important;
+  color: #ffffff !important;
+}
+
+:root.light button.bg-white.text-black,
+:root.light a.bg-white.text-black {
+  background-color: #0a0a0a !important;
+  color: #ffffff !important;
+}
+
+/* Hero - Contact Me button background effect */
+:root.light .bg-white[class*="absolute"] {
+  background-color: #0a0a0a !important;
+}
+
+/* Projects - GitHub button hover background */
+:root.light a .bg-zinc-800[class*="absolute"] {
+  background-color: #e5e7eb !important;
+}
+
+/* Light mode theme switcher button */
+:root.light button[class*="w-14"][class*="h-14"] {
+  background-color: rgba(243, 244, 246, 0.9) !important;
+  border-color: #e5e7eb !important;
+}
+
+/* Settings Menu - Mobile dropdown */
+:root.light button[class*="w-12"][class*="h-12"] {
+  background-color: rgba(243, 244, 246, 0.9) !important;
+  border-color: #e5e7eb !important;
+}
+
+:root.light .hover\:bg-zinc-800:hover {
+  background-color: #e5e7eb !important;
+}
+
+/* Performance optimizations - GPU acceleration */
+section,
+[class*="motion-"] {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Prevent 3D transforms from creating horizontal overflow */
+section {
+  width: 100%;
+  position: relative;
+}
+
+/* Mobile viewport fix for min-h-screen */
+@media (max-width: 768px) {
+  @supports (min-height: 100dvh) {
+    section[class*="min-h-screen"] {
+      min-height: 100dvh;
+    }
+  }
+}
+
+/* Prevent any other element from creating scrollbars */
+main {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Smooth animations */
+.group:hover {
+  transform: translateZ(0);
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utility classes */
+.scale-103 {
+  transform: scale(1.03);
 }
