@@ -5,27 +5,6 @@ import { MouseEvent, useRef } from "react";
 import Section from "./Section";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const getContactLinks = (t: (key: string) => string) => [
-  {
-    label: t("Email"),
-    value: "quan.pham@example.com",
-    href: "mailto:quan.pham@example.com",
-    icon: "📧",
-  },
-  {
-    label: "GitHub",
-    value: "github.com/quanpham",
-    href: "https://github.com",
-    icon: "💻",
-  },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/quanpham",
-    href: "https://linkedin.com",
-    icon: "💼",
-  },
-];
-
 interface ContactLink {
   label: string;
   value: string;
@@ -139,7 +118,27 @@ function ContactCard({ link, index }: { link: ContactLink; index: number }) {
 
 export default function Contact() {
   const { t } = useLanguage();
-  const contactLinks = getContactLinks(t);
+  
+  const contactLinks = [
+    {
+      label: t("Email"),
+      value: "quan.pham@example.com",
+      href: "mailto:quan.pham@example.com",
+      icon: "📧",
+    },
+    {
+      label: "GitHub",
+      value: "github.com/quanpham",
+      href: "https://github.com",
+      icon: "💻",
+    },
+    {
+      label: "LinkedIn",
+      value: "linkedin.com/in/quanpham",
+      href: "https://linkedin.com",
+      icon: "💼",
+    },
+  ];
   
   return (
     <Section id="contact" className="bg-zinc-950 relative">

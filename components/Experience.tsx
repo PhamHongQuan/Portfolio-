@@ -11,34 +11,33 @@ interface ExperienceItem {
   description: string[];
 }
 
-const getExperiences = (t: (key: string) => string): ExperienceItem[] => [
-  {
-    company: t("Tech Company"),
-    role: t("Backend Developer"),
-    period: `2022 - ${t("Present")}`,
-    description: [
-      t("Architected and developed RESTful APIs serving 100k+ daily requests"),
-      t("Optimized database queries reducing response time by 40%"),
-      t("Implemented authentication and authorization using Spring Security"),
-      t("Collaborated with frontend team to deliver seamless user experiences"),
-    ],
-  },
-  {
-    company: t("Software Solutions Inc"),
-    role: t("Junior Java Developer"),
-    period: "2020 - 2022",
-    description: [
-      t("Developed microservices using Spring Boot and Docker"),
-      t("Implemented CI/CD pipelines improving deployment efficiency"),
-      t("Wrote comprehensive unit and integration tests"),
-      t("Participated in code reviews and mentored junior developers"),
-    ],
-  },
-];
-
 export default function Experience() {
   const { t } = useLanguage();
-  const experiences = getExperiences(t);
+  
+  const experiences: ExperienceItem[] = [
+    {
+      company: t("Tech Company"),
+      role: t("Backend Developer"),
+      period: `2022 - ${t("Present")}`,
+      description: [
+        t("Architected and developed RESTful APIs serving 100k+ daily requests"),
+        t("Optimized database queries reducing response time by 40%"),
+        t("Implemented authentication and authorization using Spring Security"),
+        t("Collaborated with frontend team to deliver seamless user experiences"),
+      ],
+    },
+    {
+      company: t("Software Solutions Inc"),
+      role: t("Junior Java Developer"),
+      period: "2020 - 2022",
+      description: [
+        t("Developed microservices using Spring Boot and Docker"),
+        t("Implemented CI/CD pipelines improving deployment efficiency"),
+        t("Wrote comprehensive unit and integration tests"),
+        t("Participated in code reviews and mentored junior developers"),
+      ],
+    },
+  ];
   
   return (
     <Section id="experience" className="bg-zinc-950 relative">

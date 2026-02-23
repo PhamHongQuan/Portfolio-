@@ -82,9 +82,9 @@ export default function About() {
   const { t } = useLanguage();
   
   const highlights = [
-    { text: t("I'm a "), highlight: t("Java Backend Developer"), rest: t(" passionate about building scalable, high-performance systems that power modern applications.") },
-    { text: t("With expertise in "), highlight: t("Spring Boot, REST APIs, and microservices architecture"), rest: t(", I focus on writing clean, maintainable code that stands the test of time.") },
-    { text: t("I believe in "), highlight: t("engineering fundamentals, continuous learning"), rest: t(", and the value of well-architected solutions over quick fixes.") },
+    { text: t("I'm a") + " ", highlight: t("Java Backend Developer"), rest: " " + t("passionate about building scalable, high-performance systems that power modern applications.") },
+    { text: t("With expertise in") + " ", highlight: t("Spring Boot, REST APIs, and microservices architecture"), rest: t(", I focus on writing clean, maintainable code that stands the test of time.") },
+    { text: t("I believe in") + " ", highlight: t("engineering fundamentals, continuous learning"), rest: t(", and the value of well-architected solutions over quick fixes.") },
   ];
 
   return (

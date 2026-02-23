@@ -11,29 +11,6 @@ interface SkillGroup {
   gradient: string;
 }
 
-const getSkillGroups = (t: (key: string) => string): SkillGroup[] => [
-  {
-    title: t("Backend"),
-    skills: ["Java", "Spring Boot", "REST API", "Authentication"],
-    gradient: "from-blue-500/10 to-cyan-500/10",
-  },
-  {
-    title: t("Database"),
-    skills: ["MySQL", "PostgreSQL"],
-    gradient: "from-green-500/10 to-emerald-500/10",
-  },
-  {
-    title: t("Frontend"),
-    skills: ["React", "Next.js basics"],
-    gradient: "from-purple-500/10 to-pink-500/10",
-  },
-  {
-    title: t("Other"),
-    skills: ["Git", "Docker", "Linux"],
-    gradient: "from-orange-500/10 to-red-500/10",
-  },
-];
-
 function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   
@@ -142,7 +119,29 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
 
 export default function Skills() {
   const { t } = useLanguage();
-  const skillGroups = getSkillGroups(t);
+  
+  const skillGroups: SkillGroup[] = [
+    {
+      title: t("Backend"),
+      skills: ["Java", "Spring Boot", "REST API", "Authentication"],
+      gradient: "from-blue-500/10 to-cyan-500/10",
+    },
+    {
+      title: t("Database"),
+      skills: ["MySQL", "PostgreSQL"],
+      gradient: "from-green-500/10 to-emerald-500/10",
+    },
+    {
+      title: t("Frontend"),
+      skills: ["React", "Next.js basics"],
+      gradient: "from-purple-500/10 to-pink-500/10",
+    },
+    {
+      title: t("Other"),
+      skills: ["Git", "Docker", "Linux"],
+      gradient: "from-orange-500/10 to-red-500/10",
+    },
+  ];
   
   return (
     <Section id="skills" className="relative">
