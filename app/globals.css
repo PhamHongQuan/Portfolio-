@@ -46,7 +46,7 @@ body {
   width: 100%;
   max-width: 100%;
   position: relative;
-  transition: background-color 0.1s ease, color 0.1s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Ensure all direct children of body don't overflow */
@@ -57,143 +57,198 @@ body > *,
 
 /* Light mode overrides */
 :root.light body {
-  background: linear-gradient(to bottom, #f9fafb, #ffffff);
+  background: linear-gradient(to bottom, #fafafa, #f5f5f5);
 }
 
 :root.light section {
-  color: #0a0a0a;
+  color: #18181b;
 }
 
 :root.light .bg-black {
-  background-color: #ffffff !important;
+  background-color: #fafafa !important;
 }
 
 :root.light .bg-zinc-900 {
-  background-color: #f3f4f6 !important;
+  background-color: #f5f5f5 !important;
 }
 
 :root.light .bg-zinc-950 {
-  background-color: #ffffff !important;
+  background-color: #fafafa !important;
 }
 
 :root.light .bg-zinc-900\/50 {
-  background-color: rgba(243, 244, 246, 0.8) !important;
+  background-color: rgba(245, 245, 245, 0.8) !important;
+}
+
+:root.light .bg-zinc-900\/80 {
+  background-color: rgba(245, 245, 245, 0.95) !important;
 }
 
 :root.light .bg-zinc-900\/90 {
-  background-color: rgba(243, 244, 246, 0.9) !important;
+  background-color: rgba(245, 245, 245, 0.95) !important;
 }
 
 :root.light .bg-zinc-900\/95 {
-  background-color: rgba(243, 244, 246, 0.95) !important;
+  background-color: rgba(245, 245, 245, 0.98) !important;
+}
+
+:root.light .bg-zinc-950\/80 {
+  background-color: rgba(250, 250, 250, 0.95) !important;
+}
+
+:root.light .bg-zinc-950\/90 {
+  background-color: rgba(250, 250, 250, 0.98) !important;
 }
 
 :root.light .bg-zinc-800 {
-  background-color: #e5e7eb !important;
+  background-color: #e4e4e7 !important;
 }
 
 :root.light .bg-zinc-800\/50 {
-  background-color: rgba(229, 231, 235, 0.5) !important;
+  background-color: rgba(228, 228, 231, 0.5) !important;
 }
 
 :root.light .bg-zinc-700 {
-  background-color: #d1d5db !important;
+  background-color: #d4d4d8 !important;
 }
 
 :root.light .text-white {
-  color: #0a0a0a !important;
+  color: #18181b !important;
+}
+
+:root.light .text-zinc-300 {
+  color: #3f3f46 !important;
 }
 
 :root.light .text-zinc-400 {
-  color: #6b7280 !important;
+  color: #52525b !important;
 }
 
 :root.light .text-zinc-500 {
-  color: #6b7280 !important;
+  color: #71717a !important;
+}
+
+:root.light .text-zinc-600 {
+  color: #52525b !important;
 }
 
 :root.light .border-zinc-800 {
-  border-color: #e5e7eb !important;
+  border-color: #e4e4e7 !important;
 }
 
 :root.light .border-zinc-700 {
-  border-color: #d1d5db !important;
+  border-color: #d4d4d8 !important;
 }
 
 :root.light .border-zinc-600 {
-  border-color: #9ca3af !important;
+  border-color: #a1a1aa !important;
 }
 
 /* Experience - Timeline elements */
 :root.light .via-zinc-700 {
-  --tw-gradient-stops: transparent, #d1d5db, transparent !important;
+  --tw-gradient-stops: transparent, #d4d4d8, transparent !important;
 }
 
 :root.light .border-zinc-950 {
-  border-color: #f3f4f6 !important;
+  border-color: #f5f5f5 !important;
+}
+
+:root.light .border-zinc-900 {
+  border-color: #f5f5f5 !important;
 }
 
 :root.light .bg-zinc-700 {
-  background-color: #9ca3af !important;
+  background-color: #a1a1aa !important;
+}
+
+/* Experience - Timeline dots */
+:root.light .bg-white[class*="rounded-full"][class*="w-4"] {
+  background-color: #18181b !important;
+  border-color: #f5f5f5 !important;
 }
 
 /* Projects - Tech tags */
 :root.light .bg-zinc-800.text-zinc-300,
 :root.light span.bg-zinc-800 {
-  background-color: #e5e7eb !important;
-  color: #374151 !important;
-}
-
-:root.light .text-zinc-300 {
-  color: #4b5563 !important;
+  background-color: #e4e4e7 !important;
+  color: #3f3f46 !important;
 }
 
 /* Projects - Button borders and hover */
 :root.light a[class*="border-zinc-700"],
 :root.light button[class*="border-zinc-700"] {
-  border-color: #d1d5db !important;
+  border-color: #d4d4d8 !important;
 }
 
 :root.light .border-zinc-500 {
-  border-color: #9ca3af !important;
+  border-color: #a1a1aa !important;
 }
 
 /* Projects & Hero - White/Black button inversions */
 :root.light .bg-white.text-black {
-  background-color: #0a0a0a !important;
-  color: #ffffff !important;
+  background-color: #18181b !important;
+  color: #fafafa !important;
 }
 
 :root.light button.bg-white.text-black,
 :root.light a.bg-white.text-black {
-  background-color: #0a0a0a !important;
-  color: #ffffff !important;
+  background-color: #18181b !important;
+  color: #fafafa !important;
 }
 
-/* Hero - Contact Me button background effect */
-:root.light .bg-white[class*="absolute"] {
-  background-color: #0a0a0a !important;
+:root.light button.bg-white.text-black:hover,
+:root.light a.bg-white.text-black:hover {
+  background-color: #27272a !important;
 }
 
-/* Projects - GitHub button hover background */
+/* Hero - Contact Me button (transparent with border) */
+:root.light button.bg-transparent.border-zinc-700 {
+  background-color: transparent !important;
+  border-color: #3f3f46 !important;
+  color: #18181b !important;
+}
+
+:root.light button.bg-transparent.border-zinc-700:hover {
+  border-color: #18181b !important;
+}
+
+/* Projects - GitHub button */
 :root.light a .bg-zinc-800[class*="absolute"] {
-  background-color: #e5e7eb !important;
+  background-color: #e4e4e7 !important;
 }
 
 /* Light mode theme switcher button */
 :root.light button[class*="w-14"][class*="h-14"] {
-  background-color: rgba(243, 244, 246, 0.9) !important;
-  border-color: #e5e7eb !important;
+  background-color: rgba(245, 245, 245, 0.95) !important;
+  border-color: #e4e4e7 !important;
 }
 
 /* Settings Menu - Mobile dropdown */
 :root.light button[class*="w-12"][class*="h-12"] {
-  background-color: rgba(243, 244, 246, 0.9) !important;
-  border-color: #e5e7eb !important;
+  background-color: rgba(245, 245, 245, 0.95) !important;
+  border-color: #e4e4e7 !important;
 }
 
 :root.light .hover\:bg-zinc-800:hover {
-  background-color: #e5e7eb !important;
+  background-color: #e4e4e7 !important;
+}
+
+/* Contact section - Card backgrounds */
+:root.light .bg-zinc-900\/80.backdrop-blur-sm {
+  background-color: rgba(245, 245, 245, 0.95) !important;
+}
+
+/* Hover states */
+:root.light .hover\:border-zinc-700:hover {
+  border-color: #a1a1aa !important;
+}
+
+:root.light .hover\:border-white:hover {
+  border-color: #18181b !important;
+}
+
+:root.light .group:hover .group-hover\:text-white {
+  color: #18181b !important;
 }
 
 /* Performance optimizations - GPU acceleration */
@@ -242,7 +297,90 @@ main {
   }
 }
 
+/* Hero particles - Light mode */
+:root.light .bg-zinc-700[class*="w-1"][class*="h-1"] {
+  background-color: #d4d4d8 !important;
+}
+
+/* About section - Backdrop blur cards */
+:root.light .backdrop-blur-sm {
+  backdrop-filter: blur(12px);
+}
+
+/* Skills section 3D cards */
+:root.light .bg-zinc-900\/80.backdrop-blur-sm.border.border-zinc-800 {
+  background-color: rgba(245, 245, 245, 0.95) !important;
+  border-color: #e4e4e7 !important;
+}
+
 /* Utility classes */
 .scale-103 {
   transform: scale(1.03);
+}
+
+/* Skills section - bullet dots */
+:root.light .bg-zinc-600[class*="w-1"][class*="h-1"] {
+  background-color: #52525b !important;
+}
+
+:root.light .group:hover .bg-zinc-600[class*="w-1"][class*="h-1"] {
+  background-color: #18181b !important;
+}
+
+/* Arrow down icon in Hero */
+:root.light .text-zinc-400[class*="w-6"][class*="h-6"] {
+  color: #71717a !important;
+}
+
+/* ChevronRight icons in Experience */
+:root.light .text-zinc-600 {
+  color: #a1a1aa !important;
+}
+
+/* Contact section - Arrow icon */
+:root.light .text-zinc-600.group-hover\:text-white {
+  color: #a1a1aa !important;
+}
+
+/* Smooth theme transitions for all elements */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Preserve animations */
+[class*="motion-"],
+[class*="animate-"] {
+  transition-property: transform, opacity, background-color, border-color, color;
+}
+
+/* Projects - Tech stack tags hover */
+:root.light span.bg-zinc-800:hover {
+  background-color: #d4d4d8 !important;
+  color: #18181b !important;
+}
+
+/* Projects - Live Demo button */
+:root.light a.bg-white.hover\:bg-zinc-100:hover {
+  background-color: #27272a !important;
+}
+
+/* Better contrast for links and buttons in light mode */
+:root.light a,
+:root.light button {
+  transition: all 0.3s ease;
+}
+
+/* Improve readability in light mode */
+:root.light h1,
+:root.light h2,
+:root.light h3 {
+  color: #18181b !important;
+  font-weight: 700;
+}
+
+:root.light p {
+  color: #3f3f46 !important;
+  line-height: 1.7;
 }
