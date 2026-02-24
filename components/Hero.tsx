@@ -35,7 +35,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          {t("Quan Pham")}
+          {t("Quan Pham" as any)}
         </motion.h1>
 
         <motion.h2
@@ -44,7 +44,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          {t("Java Backend Developer")}
+          {t("Fullstack Web Developer" as any)}
         </motion.h2>
 
         <motion.p
@@ -53,7 +53,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         >
-          {t("Building robust, scalable backend systems with clean architecture and engineering excellence.")}
+          {t("Building user-friendly interfaces and stable server systems with clean, maintainable code from frontend to backend." as any)}
         </motion.p>
 
         <motion.div
@@ -69,7 +69,7 @@ export default function Hero() {
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2 }}
           >
-            <span className="relative z-10">{t("View Projects")}</span>
+            <span className="relative z-10">{t("View Projects" as any)}</span>
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400"
               initial={{ x: "-100%", opacity: 0 }}
@@ -85,7 +85,7 @@ export default function Hero() {
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.2 }}
           >
-            <span className="relative z-10">{t("Contact Me")}</span>
+            <span className="relative z-10">{t("Contact Me" as any)}</span>
             <motion.div
               className="absolute inset-0 bg-white"
               initial={{ scale: 0, opacity: 0 }}

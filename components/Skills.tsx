@@ -11,25 +11,25 @@ interface SkillGroup {
   gradient: string;
 }
 
-const getSkillGroups = (t: (key: string) => string): SkillGroup[] => [
+const getSkillGroups = (t: (key: any) => string): SkillGroup[] => [
   {
-    title: t("Backend"),
-    skills: ["Java", "Spring Boot", "REST API", "Authentication"],
+    title: t("Backend" as any),
+    skills: ["PHP (Laravel)", "Java (Spring Boot)", "RESTful API", "Docker", "Swagger"],
     gradient: "from-blue-500/10 to-cyan-500/10",
   },
   {
-    title: t("Database"),
-    skills: ["MySQL", "PostgreSQL"],
+    title: t("Database" as any),
+    skills: ["MySQL", t("Database Design" as any), t("Query Optimization" as any)],
     gradient: "from-green-500/10 to-emerald-500/10",
   },
   {
-    title: t("Frontend"),
-    skills: ["React", "Next.js basics"],
+    title: t("Frontend" as any),
+    skills: ["ReactJS", "JavaScript", "HTML", "Tailwind CSS", "AJAX/Fetch"],
     gradient: "from-purple-500/10 to-pink-500/10",
   },
   {
-    title: t("Other"),
-    skills: ["Git", "Docker", "Linux"],
+    title: t("Other" as any),
+    skills: ["Git/GitHub/GitLab", "Agile/Scrum", "Postman", t("AI Agent" as any)],
     gradient: "from-orange-500/10 to-red-500/10",
   },
 ];
@@ -158,9 +158,9 @@ export default function Skills() {
           className="mb-16 text-center"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            {t("Technical Expertise")}
+            {t("Technical Expertise" as any)}
           </h2>
-          <p className="text-zinc-400 text-lg">{t("Core technologies and tools")}</p>
+          <p className="text-zinc-400 text-lg">{t("Core technologies and tools" as any)}</p>
         </motion.div>
 
         <div 

@@ -5,24 +5,24 @@ import { MouseEvent, useRef } from "react";
 import Section from "./Section";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const getContactLinks = (t: (key: string) => string) => [
+const getContactLinks = (t: (key: any) => string) => [
   {
-    label: t("Email"),
-    value: "quan.pham@example.com",
-    href: "mailto:quan.pham@example.com",
+    label: t("Email" as any),
+    value: "quan54877@gmail.com",
+    href: "mailto:quan54877@gmail.com",
     icon: "📧",
   },
   {
-    label: "GitHub",
-    value: "github.com/quanpham",
-    href: "https://github.com",
-    icon: "💻",
+    label: t("Phone" as any),
+    value: "0364 543 7696",
+    href: "tel:0364543769",
+    icon: "📱",
   },
   {
-    label: "LinkedIn",
-    value: "linkedin.com/in/quanpham",
-    href: "https://linkedin.com",
-    icon: "💼",
+    label: t("Website" as any),
+    value: "hquanpham.id.vn",
+    href: "https://hquanpham.id.vn",
+    icon: "🌐",
   },
 ];
 
@@ -155,7 +155,7 @@ export default function Contact() {
           className="mb-12"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            {t("Get In Touch")}
+            {t("Get In Touch" as any)}
           </h2>
           <motion.div
             className="w-20 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full mb-8"
@@ -165,7 +165,7 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.3 }}
           />
           <p className="text-xl text-zinc-400 px-4 sm:px-0">
-            {t("I'm always open to discussing new opportunities, interesting projects, or just having a technical conversation.")}
+            {t("I'm always open to discussing new opportunities, interesting projects, or just having a technical conversation." as any)}
           </p>
         </motion.div>
 
@@ -183,7 +183,7 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <p className="text-zinc-500 text-sm px-4 sm:px-0">
-            © {new Date().getFullYear()} {t("Quan Pham")}. {t("Built with Next.js & Framer Motion.")}
+            © {new Date().getFullYear()} {t("Quan Pham" as any)}. {t("Built with Next.js & Framer Motion." as any)}
           </p>
         </motion.div>
       </div>

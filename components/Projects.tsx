@@ -13,30 +13,30 @@ interface Project {
   liveUrl?: string;
 }
 
-const getProjects = (t: (key: string) => string): Project[] => [
+const getProjects = (t: (key: any) => string): Project[] => [
   {
-    title: t("E-Commerce API"),
-    description: t("RESTful API for an e-commerce platform with authentication, payment integration, and order management. Handles 50k+ daily transactions."),
-    techStack: ["Spring Boot", "MySQL", "JWT", "Docker"],
+    title: t("AI360 - Multi-Platform AI Chatbot" as any),
+    description: t("Developed and integrated 24/7 AI chatbot across 4 messaging platforms (Facebook Messenger, Zalo OA, Telegram, Website) with flexible UI customization. Designed webhook system for real-time message processing and data synchronization." as any),
+    techStack: ["PHP (Laravel)", "RESTful API", "Webhooks", "MySQL", "JavaScript"],
     githubUrl: "https://github.com",
-    liveUrl: "https://demo.example.com",
+    liveUrl: "https://ai.rada360.com",
   },
   {
-    title: t("Task Management System"),
-    description: t("Microservices-based task management system with real-time notifications, role-based access control, and comprehensive reporting."),
-    techStack: ["Java", "PostgreSQL", "Redis", "Spring Security"],
+    title: t("Portfolio Website" as any),
+    description: t("Modern, responsive portfolio website with bilingual support (English/Vietnamese), dark/light theme, and smooth animations. Built with Next.js and Tailwind CSS." as any),
+    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     githubUrl: "https://github.com",
+    liveUrl: "https://hquanpham.id.vn",
   },
   {
-    title: t("Data Analytics Pipeline"),
-    description: t("Automated data processing pipeline that aggregates, transforms, and analyzes business metrics from multiple sources."),
-    techStack: ["Spring Batch", "MySQL", "REST API", "Docker"],
+    title: t("E-Commerce System" as any),
+    description: t("Full-stack e-commerce platform with product management, shopping cart, order processing, and payment integration. Built using Laravel backend and modern frontend." as any),
+    techStack: ["Laravel", "MySQL", "JavaScript", "Tailwind CSS", "Docker"],
     githubUrl: "https://github.com",
-    liveUrl: "https://demo.example.com",
   },
 ];
 
-function ProjectCard({ project, index, t }: { project: Project; index: number; t: (key: string) => string }) {
+function ProjectCard({ project, index, t }: { project: Project; index: number; t: (key: any) => string }) {
   const ref = useRef<HTMLDivElement>(null);
   
   const x = useMotionValue(0);
@@ -138,7 +138,7 @@ function ProjectCard({ project, index, t }: { project: Project; index: number; t
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="relative z-10">{t("GitHub")}</span>
+            <span className="relative z-10">{t("GitHub" as any)}</span>
             <motion.div
               className="absolute inset-0 bg-zinc-800"
               initial={{ x: "-100%" }}
@@ -155,7 +155,7 @@ function ProjectCard({ project, index, t }: { project: Project; index: number; t
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="relative z-10">{t("Live Demo")}</span>
+              <span className="relative z-10">{t("Live Demo" as any)}</span>
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400"
                 initial={{ x: "-100%" }}
@@ -204,9 +204,9 @@ export default function Projects() {
           className="mb-16 text-center"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            {t("Selected Projects")}
+            {t("Selected Projects" as any)}
           </h2>
-          <p className="text-zinc-400 text-lg">{t("Featured work showcasing backend expertise")}</p>
+          <p className="text-zinc-400 text-lg">{t("Featured work showcasing backend expertise" as any)}</p>
         </motion.div>
 
         <div 

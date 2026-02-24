@@ -11,27 +11,29 @@ interface ExperienceItem {
   description: string[];
 }
 
-const getExperiences = (t: (key: string) => string): ExperienceItem[] => [
+const getExperiences = (t: (key: any) => string): ExperienceItem[] => [
   {
-    company: t("Tech Company"),
-    role: t("Backend Developer"),
-    period: `2022 - ${t("Present")}`,
+    company: t("Rada360 Technology JSC" as any),
+    role: t("Fullstack PHP Developer" as any),
+    period: `${t("Nov 2024" as any)} - ${t("Present" as any)}`,
     description: [
-      t("Architected and developed RESTful APIs serving 100k+ daily requests"),
-      t("Optimized database queries reducing response time by 40%"),
-      t("Implemented authentication and authorization using Spring Security"),
-      t("Collaborated with frontend team to deliver seamless user experiences"),
+      t("Developed Laravel applications with controllers, services, middleware, API, Blade templates, and queues" as any),
+      t("Built RESTful APIs with CRUD operations, authentication, authorization, and validation" as any),
+      t("Designed and optimized MySQL databases with efficient queries" as any),
+      t("Created responsive UI using JavaScript, HTML, and Tailwind CSS with AJAX/Fetch integration" as any),
+      t("Documented APIs with Swagger and tested with Postman" as any),
+      t("Set up development and deployment environments using Docker" as any),
     ],
   },
   {
-    company: t("Software Solutions Inc"),
-    role: t("Junior Java Developer"),
-    period: "2020 - 2022",
+    company: t("Nong Lam University" as any),
+    role: t("IT Student" as any),
+    period: `${t("Sep 2021" as any)} - ${t("Dec 2025" as any)}`,
     description: [
-      t("Developed microservices using Spring Boot and Docker"),
-      t("Implemented CI/CD pipelines improving deployment efficiency"),
-      t("Wrote comprehensive unit and integration tests"),
-      t("Participated in code reviews and mentored junior developers"),
+      t("Major in Information Technology with GPA 3.25/4" as any),
+      t("Learned Java (Spring Boot), PHP (Laravel), ReactJS, and database systems" as any),
+      t("Participated in various academic projects and practical exercises" as any),
+      t("Achieved TOEIC 590 certification for reading English technical documentation" as any),
     ],
   },
 ];
@@ -54,7 +56,7 @@ export default function Experience() {
           className="mb-16 text-center"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            {t("Professional Experience")}
+            {t("Professional Experience" as any)}
           </h2>
           <motion.div
             className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"

@@ -82,9 +82,9 @@ export default function About() {
   const { t } = useLanguage();
   
   const highlights = [
-    { text: t("I'm a "), highlight: t("Java Backend Developer"), rest: t(" passionate about building scalable, high-performance systems that power modern applications.") },
-    { text: t("With expertise in "), highlight: t("Spring Boot, REST APIs, and microservices architecture"), rest: t(", I focus on writing clean, maintainable code that stands the test of time.") },
-    { text: t("I believe in "), highlight: t("engineering fundamentals, continuous learning"), rest: t(", and the value of well-architected solutions over quick fixes.") },
+    { text: t("I'm a " as any), highlight: t("Fullstack developer" as any), rest: t(" with experience building web systems using Laravel and ReactJS." as any) },
+    { text: t("I have experience " as any), highlight: t("developing APIs, handling backend logic, and implementing user interfaces." as any), rest: t(" I care about code structure, performance, and system scalability." as any) },
+    { text: t("My goal is to " as any), highlight: t("build stable, maintainable products" as any), rest: t(" that meet real-world needs." as any) },
   ];
 
   return (
@@ -101,7 +101,7 @@ export default function About() {
           className="mb-12 text-center"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            {t("Who I Am")}
+            {t("Who I Am" as any)}
           </h2>
           <motion.div
             className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"
@@ -144,7 +144,7 @@ export default function About() {
           transition={{ duration: 0.6, delay: 0.4 }}
           style={{ perspective: "1500px" }}
         >
-          {[t("2+ Years"), t("10+ Projects"), t("Clean Code")].map((stat, index) => (
+          {[t("1+ Years" as any), t("GPA 3.25/4" as any), t("TOEIC 590" as any)].map((stat, index) => (
             <StatCard key={stat} stat={stat} index={index} />
           ))}
         </motion.div>

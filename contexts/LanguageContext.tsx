@@ -30,7 +30,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   // Translation function
   const t = (key: TranslationKey): string => {
-    return translations[language][key] || key;
+    const translationObj = translations[language] as Record<string, string>;
+    return translationObj[key] || key;
   };
 
   return (
