@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ArrowDown, Sparkles } from "lucide-react";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -15,105 +16,129 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen w-full flex items-center justify-center px-6 py-20 sm:px-8 sm:py-24 overflow-x-hidden"
+      className="relative min-h-screen w-full flex items-center justify-center px-6 py-20 sm:px-8 sm:py-24 overflow-hidden"
     >
-      {/* Optimized gradient backgrounds - static for performance */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-600/20 via-blue-500/10 to-transparent rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-tl from-purple-600/20 via-purple-500/10 to-transparent rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-zinc-700 rounded-full"
+            initial={{ 
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              opacity: 0 
+            }}
+            animate={{ 
+              y: [null, Math.random() * window.innerHeight],
+              opacity: [0, 0.5, 0] 
+            }}
+            transition={{ 
+              duration: Math.random() * 3 + 2,
+              repeat: Infinity,
+              delay: Math.random() * 2
+            }}
+          />
+        ))}
       </div>
 
-      <motion.div
-        className="max-w-5xl mx-auto text-center relative z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <motion.h1
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+      <div className="max-w-4xl mx-auto text-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ 
+            duration: 0.6,
+            type: "spring",
+            stiffness: 100
+          }}
+          className="mb-4 inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-800 rounded-full"
         >
-          {t("Quan Pham")}
+          <motion.div
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          >
+            <Sparkles className="w-4 h-4 text-zinc-400" />
+          </motion.div>
+          <span className="text-sm text-zinc-400">{t("Java Backend Developer")}</span>
+        </motion.div>
+
+        <motion.h1
+          className="text-5xl sm:text-7xl md:text-8xl font-bold mb-6 tracking-tight"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.8,
+            delay: 0.2,
+            type: "spring",
+            stiffness: 80
+          }}
+        >
+          {t("Quan Pham").split("").map((char, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.3 + index * 0.05,
+                type: "spring",
+                stiffness: 120
+              }}
+              className="inline-block"
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
         </motion.h1>
 
-        <motion.h2
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-zinc-400 mb-8 font-light"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {t("Java Backend Developer")}
-        </motion.h2>
-
         <motion.p
-          className="text-base sm:text-lg md:text-xl text-zinc-500 max-w-2xl mx-auto mb-12 leading-relaxed"
-          initial={{ opacity: 0, y: 50 }}
+          className="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 0.8 }}
         >
           {t("Building robust, scalable backend systems with clean architecture and engineering excellence.")}
         </motion.p>
 
         <motion.div
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 1 }}
         >
           <motion.button
             onClick={() => scrollToSection("projects")}
-            className="group relative px-6 py-3 sm:px-8 sm:py-4 bg-white text-black font-medium rounded-lg w-full sm:w-auto overflow-hidden text-sm sm:text-base"
+            className="px-8 py-3 bg-white hover:bg-zinc-900 text-black hover:text-white font-medium rounded-lg w-full sm:w-auto transition-all duration-300"
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <span className="relative z-10">{t("View Projects")}</span>
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400"
-              initial={{ x: "-100%", opacity: 0 }}
-              whileHover={{ x: 0, opacity: 0.2 }}
-              transition={{ duration: 0.3 }}
-            />
+            {t("View Projects")}
           </motion.button>
           
           <motion.button
             onClick={() => scrollToSection("contact")}
-            className="group relative px-6 py-3 sm:px-8 sm:py-4 border-2 border-zinc-700 text-white font-medium rounded-lg w-full sm:w-auto overflow-hidden text-sm sm:text-base"
-            whileHover={{ scale: 1.05, borderColor: "#ffffff" }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2 }}
+            className="px-8 py-3 border-2 border-zinc-700 hover:border-white bg-transparent hover:bg-white text-white hover:text-black font-medium rounded-lg w-full sm:w-auto transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <span className="relative z-10">{t("Contact Me")}</span>
-            <motion.div
-              className="absolute inset-0 bg-white"
-              initial={{ scale: 0, opacity: 0 }}
-              whileHover={{ scale: 1, opacity: 0.1 }}
-              transition={{ duration: 0.3 }}
-            />
+            {t("Contact Me")}
           </motion.button>
         </motion.div>
-      </motion.div>
+      </div>
 
-      {/* Smooth scroll indicator */}
       <motion.div
         className="absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1 }}
+        transition={{ duration: 0.5, delay: 1.5 }}
         onClick={() => scrollToSection("about")}
+        whileHover={{ scale: 1.2 }}
       >
         <motion.div
-          className="w-6 h-10 border-2 border-zinc-700 rounded-full flex justify-center p-2"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <motion.div
-            className="w-1.5 h-1.5 bg-zinc-400 rounded-full"
-            animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          />
+          <ArrowDown className="w-6 h-6 text-zinc-400" />
         </motion.div>
       </motion.div>
     </section>

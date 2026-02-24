@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Section from "./Section";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Briefcase, ChevronRight } from "lucide-react";
 
 interface ExperienceItem {
   company: string;
@@ -40,81 +41,106 @@ export default function Experience() {
   ];
   
   return (
-    <Section id="experience" className="bg-zinc-950 relative">
-      {/* Background accent */}
-      <div className="absolute -right-48 top-1/3 w-[500px] h-[500px] bg-gradient-to-l from-purple-600/10 via-purple-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
-      
-      <div className="max-w-4xl mx-auto w-full relative z-10">
+    <Section id="experience" className="bg-zinc-950">
+      <div className="max-w-4xl mx-auto w-full">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 text-center"
+          transition={{ duration: 0.5 }}
+          className="mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
             {t("Professional Experience")}
           </h2>
-          <motion.div
-            className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"
-            initial={{ width: 0 }}
-            whileInView={{ width: 80 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          />
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-zinc-700 to-transparent" />
+          <motion.div 
+            className="absolute left-0 top-0 bottom-0 w-0.5 bg-zinc-800"
+            initial={{ height: 0 }}
+            whileInView={{ height: "100%" }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          />
 
-          <div className="space-y-12">
+          <div className="space-y-10">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true }}
                 transition={{ 
                   duration: 0.6, 
                   delay: index * 0.2,
-                  ease: [0.16, 1, 0.3, 1]
+                  type: "spring",
+                  stiffness: 100
                 }}
                 className="relative pl-8 sm:pl-10 group"
               >
-                {/* Timeline dot */}
                 <motion.div
-                  className="absolute left-0 top-2 w-3 h-3 bg-zinc-700 rounded-full border-2 border-zinc-950 group-hover:bg-purple-500 group-hover:scale-125 transition-all duration-300"
+                  className="absolute left-0 top-2 w-3 h-3 bg-zinc-700 rounded-full border-2 border-zinc-950"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 + 0.3 }}
+                  transition={{ delay: index * 0.2 + 0.3, type: "spring" }}
+                  whileHover={{ 
+                    scale: 1.5,
+                    backgroundColor: "#ffffff",
+                    transition: { duration: 0.2 }
+                  }}
                 />
 
                 <motion.div
-                  className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4 sm:p-6 group-hover:border-zinc-600 transition-all duration-300"
-                  whileHover={{ x: 8, transition: { duration: 0.2 } }}
+                  className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-5 sm:p-6 will-change-transform"
+                  whileHover={{ 
+                    x: 10,
+                    y: -5,
+                    borderColor: "#52525b",
+                    transition: { duration: 0.2, ease: "easeOut" }
+                  }}
                 >
-                  <div className="mb-4">
-                    <h3 className="text-xl sm:text-2xl font-semibold text-white mb-1 group-hover:text-purple-300 transition-colors">
-                      {exp.role}
-                    </h3>
-                    <p className="text-lg sm:text-xl text-zinc-400 mb-2">{exp.company}</p>
-                    <span className="text-sm text-zinc-500 inline-block px-3 py-1 bg-zinc-800 rounded-full">
-                      {exp.period}
-                    </span>
+                  <div className="mb-4 flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <motion.div
+                          whileHover={{ 
+                            rotate: 360,
+                            transition: { duration: 0.4, ease: "easeInOut" }
+                          }}
+                        >
+                          <Briefcase className="w-5 h-5 text-zinc-400 group-hover:text-white transition-colors duration-200" />
+                        </motion.div>
+                        <h3 className="text-xl sm:text-2xl font-semibold text-white group-hover:text-zinc-100 transition-colors">
+                          {exp.role}
+                        </h3>
+                      </div>
+                      <p className="text-base sm:text-lg text-zinc-400 mb-2 group-hover:text-zinc-300 transition-colors">{exp.company}</p>
+                      <span className="text-sm text-zinc-500 inline-block px-3 py-1 bg-zinc-800 rounded-md group-hover:bg-zinc-700 transition-colors">
+                        {exp.period}
+                      </span>
+                    </div>
                   </div>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2.5">
                     {exp.description.map((item, i) => (
                       <motion.li
                         key={i}
-                        className="text-zinc-400 flex items-start group-hover:text-zinc-300 transition-colors"
+                        className="text-zinc-400 flex items-start text-sm sm:text-base group-hover:text-zinc-300 transition-colors duration-200"
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.2 + i * 0.05 }}
                       >
-                        <span className="text-purple-500 mr-3 text-xl">▹</span>
+                        <motion.div
+                          whileHover={{ 
+                            scale: 1.5,
+                            x: 3,
+                            transition: { duration: 0.15 }
+                          }}
+                        >
+                          <ChevronRight className="w-4 h-4 text-zinc-500 mr-2 mt-0.5 flex-shrink-0" />
+                        </motion.div>
                         <span>{item}</span>
                       </motion.li>
                     ))}

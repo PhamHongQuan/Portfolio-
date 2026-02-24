@@ -23,13 +23,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Quan Pham | Java Backend Developer",
-  description: "Professional portfolio of Quan Pham - Java Backend Developer specializing in Spring Boot, REST APIs, and scalable backend systems.",
+  title: "Quan Pham - Java Backend Developer",
+  description: "Personal portfolio of Quan Pham - passionate about building scalable backend systems with clean code and engineering excellence.",
   keywords: ["Java", "Backend Developer", "Spring Boot", "REST API", "MySQL", "PostgreSQL"],
   authors: [{ name: "Quan Pham" }],
   openGraph: {
-    title: "Quan Pham | Java Backend Developer",
-    description: "Professional portfolio showcasing backend development projects and expertise",
+    title: "Quan Pham - Java Backend Developer",
+    description: "Personal portfolio showcasing my journey in backend development",
     type: "website",
   },
 };
