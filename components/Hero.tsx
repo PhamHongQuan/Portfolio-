@@ -1,13 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowDown, Sparkles } from "lucide-react";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { t } = useLanguage();
+  const [dimensions, setDimensions] = useState({ width: 1920, height: 1080 });
+
+  useEffect(() => {
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+  }, []);
   
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -25,12 +33,12 @@ export default function Hero() {
             key={i}
             className="absolute w-1 h-1 bg-zinc-700 rounded-full"
             initial={{ 
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * dimensions.width,
+              y: Math.random() * dimensions.height,
               opacity: 0 
             }}
             animate={{ 
-              y: [null, Math.random() * window.innerHeight],
+              y: [null, Math.random() * dimensions.height],
               opacity: [0, 0.5, 0] 
             }}
             transition={{ 

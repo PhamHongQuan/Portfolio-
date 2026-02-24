@@ -16,16 +16,20 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   // Load saved language from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem("language") as Language;
-    if (saved && (saved === "en" || saved === "vi")) {
-      setLanguageState(saved);
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem("language") as Language;
+      if (saved && (saved === "en" || saved === "vi")) {
+        setLanguageState(saved);
+      }
     }
   }, []);
 
   // Save language to localStorage
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem("language", lang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem("language", lang);
+    }
   };
 
   // Translation function

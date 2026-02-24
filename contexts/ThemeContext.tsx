@@ -19,10 +19,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Load theme from localStorage
-    const saved = localStorage.getItem("theme") as Theme;
-    if (saved && (saved === "light" || saved === "dark")) {
-      setThemeState(saved);
-      document.documentElement.classList.toggle("light", saved === "light");
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem("theme") as Theme;
+      if (saved && (saved === "light" || saved === "dark")) {
+        setThemeState(saved);
+        document.documentElement.classList.toggle("light", saved === "light");
+      }
     }
   }, []);
 
