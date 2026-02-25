@@ -54,9 +54,9 @@ export default function Hero() {
         </div>
       )}
 
-      <div className="max-w-5xl mx-auto text-center relative z-10">
+      <div className="max-w-5xl mx-auto text-center relative z-10 px-4">
         <motion.h1
-          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight text-white whitespace-nowrap"
+          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight text-white sm:whitespace-nowrap"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
