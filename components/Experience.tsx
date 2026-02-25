@@ -16,14 +16,15 @@ const getExperiences = (t: (key: any) => string): ExperienceItem[] => [
   {
     company: t("Rada360 Technology JSC" as any),
     role: t("Fullstack PHP Developer" as any),
-    period: `${t("Nov 2024" as any)} - ${t("Present" as any)}`,
+    period: `${t("Dec 2024" as any)} - ${t("Jan 2026" as any)}`,
     description: [
-      t("Developed Laravel applications with controllers, services, middleware, API, Blade templates, and queues" as any),
-      t("Built RESTful APIs with CRUD operations, authentication, authorization, and validation" as any),
-      t("Designed and optimized MySQL databases with efficient queries" as any),
-      t("Created responsive UI using JavaScript, HTML, and Tailwind CSS with AJAX/Fetch integration" as any),
-      t("Documented APIs with Swagger and tested with Postman" as any),
-      t("Set up development and deployment environments using Docker" as any),
+      t("Designed and developed RESTful API for booking system and AI chatbot" as any),
+      t("Built Service layer architecture to separate business logic from controllers, improving maintainability and testability" as any),
+      t("Implemented queue for webhook processing and asynchronous message sending, improving performance and reducing response time" as any),
+      t("Designed and optimized MySQL queries for booking, promotion, and user management features" as any),
+      t("Built UI with Tailwind CSS and handled frontend interactions using JavaScript (AJAX/Fetch)" as any),
+      t("Deployed Docker for local and development environments; used Swagger and Postman for API documentation and testing" as any),
+      t("Performed debugging, testing, and maintenance of production systems" as any),
     ],
   },
   {

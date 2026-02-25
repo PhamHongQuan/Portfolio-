@@ -6,6 +6,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Project {
   title: string;
+  role?: string;
+  period?: string;
   description: string;
   techStack: string[];
   githubUrl: string;
@@ -14,11 +16,22 @@ interface Project {
 
 const getProjects = (t: (key: any) => string): Project[] => [
   {
-    title: t("AI360 - Multi-Platform AI Chatbot" as any),
-    description: t("Developed and integrated 24/7 AI chatbot across 4 messaging platforms (Facebook Messenger, Zalo OA, Telegram, Website) with flexible UI customization. Designed webhook system for real-time message processing and data synchronization." as any),
-    techStack: ["PHP (Laravel)", "RESTful API", "Webhooks", "MySQL", "JavaScript"],
+    title: t("AI360 - SaaS AI Chatbot Platform" as any),
+    role: t("Fullstack PHP Developer" as any),
+    period: `${t("Apr 2025" as any)} - ${t("Jan 2026" as any)}`,
+    description: t("AI360 Description" as any),
+    techStack: ["PHP (Laravel)", "RESTful API", "Webhooks", "Queue", "MySQL", "JavaScript"],
     githubUrl: "https://github.com",
     liveUrl: "https://ai.rada360.com",
+  },
+  {
+    title: t("Rada360 - Booking System" as any),
+    role: t("Frontend Developer" as any),
+    period: `${t("Jun 2025" as any)} - ${t("Jan 2026" as any)}`,
+    description: t("Rada360 Description" as any),
+    techStack: ["HTML", "Tailwind CSS", "JavaScript", "API Integration", "Responsive Design"],
+    githubUrl: "https://github.com",
+    liveUrl: "https://rada360.com",
   },
   {
     title: t("Portfolio Website" as any),
@@ -26,12 +39,6 @@ const getProjects = (t: (key: any) => string): Project[] => [
     techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     githubUrl: "https://github.com",
     liveUrl: "https://hquanpham.id.vn",
-  },
-  {
-    title: t("E-Commerce System" as any),
-    description: t("Full-stack e-commerce platform with product management, shopping cart, order processing, and payment integration. Built using Laravel backend and modern frontend." as any),
-    techStack: ["Laravel", "MySQL", "JavaScript", "Tailwind CSS", "Docker"],
-    githubUrl: "https://github.com",
   },
 ];
 
@@ -46,13 +53,23 @@ function ProjectCard({ project, index, t }: { project: Project; index: number; t
         delay: index * 0.1,
         ease: [0.16, 1, 0.3, 1]
       }}
-      className="group bg-zinc-900/90 border border-zinc-800 hover:border-zinc-700 rounded-2xl p-6 sm:p-8 flex flex-col cursor-pointer transition-colors duration-200"
+      className="group bg-zinc-900/90 border border-zinc-800 hover:border-zinc-700 rounded-2xl p-6 sm:p-8 flex flex-col cursor-pointer transition-colors duration-200 h-full"
     >
-      <div>
-        <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">
+      <div className="flex-1 flex flex-col">
+        <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white">
           {project.title}
         </h3>
-        <p className="text-sm sm:text-base text-zinc-400 mb-6 leading-relaxed">
+        {project.role && (
+          <p className="text-sm sm:text-base text-zinc-300 font-medium mb-2">
+            {project.role}
+          </p>
+        )}
+        {project.period && (
+          <p className="text-sm text-zinc-500 mb-4">
+            {project.period}
+          </p>
+        )}
+        <p className="text-sm sm:text-base text-zinc-400 mb-6 leading-relaxed flex-1">
           {project.description}
         </p>
         
@@ -69,7 +86,7 @@ function ProjectCard({ project, index, t }: { project: Project; index: number; t
           </div>
         </div>
         
-        <div className="flex gap-3 mt-auto">
+        <div className="flex gap-3">
           <a
             href={project.githubUrl}
             target="_blank"

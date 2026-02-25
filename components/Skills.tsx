@@ -13,20 +13,16 @@ interface SkillGroup {
 
 const getSkillGroups = (t: (key: any) => string): SkillGroup[] => [
   {
-    title: t("Backend" as any),
-    skills: ["PHP (Laravel)", "Java (Spring Boot)", "RESTful API", "Docker", "Swagger"],
-  },
-  {
-    title: t("Database" as any),
-    skills: ["MySQL", t("Database Design" as any), t("Query Optimization" as any)],
-  },
-  {
     title: t("Frontend" as any),
-    skills: ["ReactJS", "JavaScript", "HTML", "Tailwind CSS", "AJAX/Fetch"],
+    skills: ["JavaScript", "ReactJS", "HTML / Tailwind CSS", "AJAX / Fetch"],
   },
   {
-    title: t("Other" as any),
-    skills: ["Git/GitHub/GitLab", "Agile/Scrum", "Postman", t("AI Agent" as any)],
+    title: t("Backend" as any),
+    skills: ["PHP (Laravel)", "Java (SpringBoot)", "RESTful API", t("Authentication / Authorization" as any), t("MySQL (Database Design & Optimization)" as any), "Docker", "Swagger"],
+  },
+  {
+    title: t("Tool" as any),
+    skills: ["Git / GitLab", "Postman", "Agile / Scrum"],
   },
 ];
 
@@ -150,7 +146,7 @@ export default function Skills() {
           <p className="text-zinc-400 text-xl">{t("Core technologies and tools" as any)}</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {skillGroups.map((group, index) => (
             <SkillCard key={group.title} group={group} index={index} />
           ))}

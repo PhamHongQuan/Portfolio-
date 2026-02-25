@@ -14,7 +14,7 @@ const getContactLinks = (t: (key: any) => string) => [
   {
     label: t("Phone" as any),
     value: "0364 543 7696",
-    href: "tel:0364543769",
+    href: "tel:03645437696",
     icon: "📱",
   },
   {
